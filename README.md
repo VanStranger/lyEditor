@@ -9,15 +9,15 @@ lyEditor
 lyEditor.init("#editor");//editor为需要添加editor的父容器id
 ```
 ## 常用方法
-*获取html
+* 获取html
 ```JavaScript
 lyEditor.getHtml();
 ```
-*获取text
+* 获取text
 ```JavaScript
 lyEditor.getText(200);//200为需要截取的长度，可以不填。
 ```
-*设置html
+* 设置html
 ```javascript
 lyEditor.setHtml("<p>这里是测试文字</p>");
 ```
