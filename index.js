@@ -577,11 +577,11 @@ lyEditor.prototype={
                         }
                     .addtree_content .ishtml>.ops>.ops_a{
                             color:#999;
-                            
+
                         }
                     .addtree_content .ops:nth-child(2)>.ops_a{
                             color:inherit;
-                            font-weight: bold;  
+                            font-weight: bold;
                         }
                     .addtree_content .ops_zi{
                         display:none;
@@ -648,7 +648,7 @@ lyEditor.prototype={
                             <li class="ops">
                                 <a href="###" class="ops_a" data-role='formatBlock' data-cmd='BLOCKQUOTE'><span class="icon-quotes-left"></span></a>
                             </li>
-                            
+
 
                             <li class="ops"><a href="###" class="ops_a" data-role='bold'><span class="iconfont "></span><b>B</b></a></li>
                             <li class="ops"><a href="###" class="ops_a" data-role='italic'><span class="iconfont "></span><em>Italic</em></a></li>
@@ -666,9 +666,9 @@ lyEditor.prototype={
                             <li class="none"><input type="file" class="upfile" name="upfile" multiple="multiple"></li>
                         </ul>
                     </div>
-                    
+
                     <div class="addtree_content_cont" contenteditable="true">
-                        
+
                     </div>
                 </div>
             `);
@@ -689,7 +689,7 @@ lyEditor.prototype={
                          //            success: function (data)
                          //                  {
                          //                    upimg();
-                         //                    if(data['suc']=="1"){   
+                         //                    if(data['suc']=="1"){
                          //                        if(preimgs.length<preimgnum){
                          //                            preimgs[preimgs.length]='./img/userimgs/'+data['filename'];
                          //                        }
@@ -724,7 +724,7 @@ lyEditor.prototype={
                                      data: formdata,
                                  })
                                  .done(function(data) {
-                                     if(data['suc']=="1"){   
+                                     if(data['suc']=="1"){
                                          if(preimgs.length<preimgnum){
                                              preimgs[preimgs.length]='./img/userimgs/'+data['filename'];
                                          }
@@ -745,7 +745,7 @@ lyEditor.prototype={
                                      console.log("complete");
                                  });
                          }
-                         
+
                             return false;
                     });
                 })();
@@ -791,7 +791,11 @@ lyEditor.prototype={
         return $(this.eid +" .addtree_content_cont").html();
     },
     getText:function(len){
-        return $(this.eid +" .addtree_content_cont").text();
+        var text=$(this.eid +" .addtree_content_cont").text();
+        if(len){
+            text=text.substr(0,len);
+        }
+        return text;
     },
     setHtml:function(htmlstr){
         $(this.eid +" .addtree_content_cont").html(htmlstr);
