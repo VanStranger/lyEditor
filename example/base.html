@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css.css">
+</head>
+<body>
+    <div id="editor"></div>
+</body>
+</html>
+<script src="../jquery-3.2.1.min.js"></script>
+<script src="../index.js"></script>
+<script>
+    var e = lyEditor.init("#editor");
+    e.upload("../upload.php","imgs",function(){
+        console.log("uploaded");
+    });
+</script>

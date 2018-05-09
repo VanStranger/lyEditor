@@ -6,18 +6,24 @@ lyEditor
 # 引入index.js
 # 初始化
 ```JavaScript
-lyEditor.init("#editor");//editor为需要添加editor的父容器id
+var e = lyEditor.init("#editor");//editor为需要添加editor的父容器id
 ```
 ## 常用方法
 * 获取html
 ```JavaScript
-lyEditor.getHtml();
+e.getHtml();
 ```
 * 获取text
 ```JavaScript
-lyEditor.getText(200);//200为需要截取的长度，可以不填。
+e.getText(200);//200为需要截取的长度，可以不填。
 ```
 * 设置html
 ```javascript
-lyEditor.setHtml("<p>这里是测试文字</p>");
+e.setHtml("<p>这里是测试文字</p>");
+```
+* 设置上传
+```javascript
+e.upload("../upload.php","imgs",function(){//"../upload.php"为处理上传的文件，"imgs"为上传文件name，第三个参数为回调。
+    console.log("uploaded");
+});
 ```
