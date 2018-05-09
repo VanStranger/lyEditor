@@ -3,7 +3,7 @@ lyEditor
 一个自制的富文本编辑器，支持切换html源码编辑。
 ----
 # 下载到根目录
-# 引入index.js
+# 引入index.js css.css
 # 初始化
 ```JavaScript
 var e = lyEditor.init("#editor");//editor为需要添加editor的父容器id
