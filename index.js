@@ -463,7 +463,7 @@ liyangEditor.prototype={
                             <li class="ops"><a href="###" class="ops_a imgup"><span class="icon-image"></span></a></li>
                             <li class="ops right"><a href="###" class="ops_a clearall"  data-role='removeFormat'>清除</a></li>
 
-                            <li class="none"><input type="file" class="upfile" name="upfile" multiple="multiple"></li>
+                            <li class="none"><input type="file" class="upfile" name="upfile[]" multiple="multiple"></li>
                         </ul>
                     </div>
 
