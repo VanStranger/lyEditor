@@ -133,5 +133,5 @@ function uploadImgs($filename="upload_file",$path="./images/uploads"){
             die ();
         }
     }
-	return array("state"=>1,"files"=>$files);
+	return array("state"=>1,"files"=>$files,"f"=>$_FILES);
 }

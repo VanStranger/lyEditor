@@ -498,13 +498,15 @@ liyangEditor.prototype={
                                 })
                                 .done(function(data) {
                                     if(data['state']=="1"){
+                                        for(var i=0,len=data['files'].length;i<len;i++){
 
-                                        var html1=$(that.eid +" .addtree_content_cont").html();
-                                        document.execCommand("InsertImage",false,'../images/uploads/'+data['files'][0]);
-                                        if(html1==$(that.eid +" .addtree_content_cont").html()){
-                                        $(that.eid +" .addtree_content_cont").html($(that.eid +" .addtree_content_cont").html()+
-                                        '<div><img src="../images/uploads/'+data['files'][0]+'"></div>'+
-                                        '');
+                                            var html1=$(that.eid +" .addtree_content_cont").html();
+                                            document.execCommand("InsertImage",false,'../images/uploads/'+data['files'][i]);
+                                            if(html1==$(that.eid +" .addtree_content_cont").html()){
+                                            $(that.eid +" .addtree_content_cont").html($(that.eid +" .addtree_content_cont").html()+
+                                            '<div><img src="../images/uploads/'+data['files'][i]+'"></div>'+
+                                            '');
+                                            }
                                         }
                                     }
                                 })
