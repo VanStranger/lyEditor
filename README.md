@@ -2,7 +2,7 @@ lyEditor
 ====
 一个自制的富文本编辑器，支持切换html源码编辑。
 ----
-![image](https://github.com/VanStranger/lyEditor/images/demo.jpg)
+![image](https://github.com/VanStranger/lyEditor/readme_add_pic/raw/master/images/demo.jpg)
 # 下载到根目录
 # 引入index.js css.css
 # 初始化
