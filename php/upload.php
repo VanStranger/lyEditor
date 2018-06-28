@@ -1,6 +1,6 @@
 <?php
 echo json_encode(uploadImgs("imgs")) ;
-function uploadImgs($filename="upload_file",$path="./images/uploads"){
+function uploadImgs($filename="upload_file",$path="../images/uploads"){
 	if (!$_FILES[$filename]) {
 		return array("state"=>0,"error"=>'无图片上传信息，或文件key设置错误');
 		die ();

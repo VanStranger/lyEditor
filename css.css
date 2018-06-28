@@ -254,5 +254,6 @@ blockquote:before {
 }
 
 .addtree_content .addtree_content_cont img {
-    max-width: 50% !important;
+    max-width: 80% !important;
+    display: block;
 }
