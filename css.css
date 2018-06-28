@@ -194,6 +194,7 @@ blockquote:before {
     height: 40px;
     line-height: 40px;
     border-bottom: 1px solid #999;
+    overflow: hidden;
 }
 
 .addtree_content>.addtree_content_ops>ul>.ops {
