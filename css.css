@@ -10,7 +10,6 @@
 [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;
@@ -194,7 +193,7 @@ blockquote:before {
     height: 40px;
     line-height: 40px;
     border-bottom: 1px solid #999;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .addtree_content>.addtree_content_ops>ul>.ops {
