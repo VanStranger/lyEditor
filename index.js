@@ -401,6 +401,7 @@ var HTMLFormat = (function() {
     })();
 var liyangEditor=function(){
     this.eid="";
+    this.isHtml=0;
     this.uploadUrl="";
     this.uploadName = "upfile";
     this.path ="../images/uploads/";
@@ -421,7 +422,7 @@ liyangEditor.prototype={
                     <div class="addtree_content_ops">
                         <ul class="clear">
                             <li class="ops htmltext behtml"><a href="###" class="ops_a"><span class="iconfont "></span>Html</a></li>
-                            <li class="ops htmltext none"><a href="###" class="ops_a"><span class="iconfont "></span>text</a></li>
+                            <li class="ops htmltext none"><a href="###" class="ops_a"><span class="iconfont "></span>DOM</a></li>
                             <li class="ops"><a href="###" class="ops_a"  data-role='undo'><span class="icon-undo"></span></a></li>
                             <li class="ops"><a href="###" class="ops_a" data-role='redo'><span class="icon-redo"></span></a></li>
 
@@ -549,9 +550,12 @@ liyangEditor.prototype={
                         obj.addClass('none').siblings('.htmltext').removeClass('none');
                         if(obj.hasClass('behtml')){
                             obj.parent().addClass('ishtml');
-                            $(".addtree_content_cont")[0].innerText= HTMLFormat($(".addtree_content_cont").html());
+                            that.isHtml=1;
+                            console.log($(".addtree_content_cont").html());
                             console.log(HTMLFormat($(".addtree_content_cont").html()));
+                            $(".addtree_content_cont")[0].innerText= HTMLFormat($(".addtree_content_cont").html());
                         }else{
+                            that.isHtml=0;
                             obj.parent().removeClass('ishtml');
                             $(".addtree_content_cont").html($(".addtree_content_cont").text());
                         }
@@ -568,10 +572,16 @@ liyangEditor.prototype={
             });
     },
     getHtml:function(){
-        return $(this.eid +" .addtree_content_cont").html();
+        return this.isHtml ? $(this.eid + " .addtree_content_cont").text() : $(this.eid + " .addtree_content_cont").html();
     },
     getText:function(len){
+
         var text=$(this.eid +" .addtree_content_cont").text();
+        if(this.isHtml){
+            var dom=document.createElement("div");
+            dom.innerHTML=text;
+            text=dom.innerText;
+        }
         if(len){
             text=text.substr(0,len);
         }

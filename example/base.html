@@ -9,6 +9,8 @@
 </head>
 <body>
     <div id="editor"></div>
+    <a href="###" class="gethtml">获取html</a>
+    <a href="###" class="gettext">获取text</a>
 </body>
 </html>
 <script src="../jquery-3.2.1.min.js"></script>
@@ -18,4 +20,10 @@
     e.upload("../php/upload.php","imgs[]","",function(){
         console.log("uploaded");
     });
+    $(".gethtml").click(function(){
+        console.log(e.getHtml());
+    })
+    $(".gettext").click(function(){
+        console.log(e.getText());
+    })
 </script>

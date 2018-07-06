@@ -24,7 +24,7 @@ e.setHtml("<p>这里是测试文字</p>");
 ```
 * 设置上传
 ```javascript
-e.upload("../upload.php","imgs[]",function(){//"../upload.php"为处理上传的文件，"imgs"为上传文件name，第三个参数为回调。
+e.upload("../upload.php","imgs[]","",function(){//"../upload.php"为处理上传的文件，"imgs"为上传文件name，第三个参数为回调。
     console.log("uploaded");
 });
 ```
