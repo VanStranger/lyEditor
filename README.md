@@ -24,7 +24,7 @@ e.setHtml("<p>这里是测试文字</p>");
 ```
 * 设置上传
 ```javascript
-e.upload("../upload.php","imgs[]","",function(){//"../upload.php"为处理上传的文件，"imgs"为上传文件name，第三个参数为回调。
-    console.log("uploaded");
-});
+ e.upload("../php/upload.php","imgs","../images/uploads/", "/lyEditor/images/uploads/",function(){//"../upload.php"为处理上传的文件，"imgs"为上传文件name，第三个参数为上传路径相对处理上传的后台文件的路径，第四个参数为展示html展示上传文件的路径（最好是相对网站根目录),第五个参数为回调参数。
+        console.log("uploaded");
+    });
 ```

@@ -1,10 +1,19 @@
 <?php
-echo json_encode(uploadImgs("imgs")) ;
+function input($key = '', $default = null, $filter = ''){
+    if($key){
+        return htmlspecialchars(addslashes($_GET[$key] ?? $_POST[$key] ?? $default));
+    }else{
+        return array_merge($_GET,$_POST);
+    }
+}
+$filename=input('filename',"upload_file");
+$path=input("path","../images/uploads/");
+echo json_encode(uploadImgs($filename,$path)) ;
 function uploadImgs($filename="upload_file",$path="../images/uploads"){
-	if (!$_FILES[$filename]) {
-		return array("state"=>0,"error"=>'无图片上传信息，或文件key设置错误');
-		die ();
-	}
+    if (!isset($_FILES[$filename])) {
+        return array("state"=>0,"error"=>'无图片上传信息，或文件key设置错误',"f"=>$_FILES);
+        die ();
+    }
     $files=array();
     if(is_array($_FILES[$filename]['name'])){
         for($i=0,$len=count($_FILES[$filename]['name']);$i<$len;$i++){
@@ -71,7 +80,7 @@ function uploadImgs($filename="upload_file",$path="../images/uploads"){
         }
 
 
-	}else{
+    }else{
         if ($_FILES[$filename]['error'] > 0) {
             switch ($_FILES [$filename] ['error']) {
                 case 1 :
@@ -126,12 +135,12 @@ function uploadImgs($filename="upload_file",$path="../images/uploads"){
         $uinqid = uniqid();
         $file=$uinqid . '.' . $extension;
         $files[]=$file;
-        $filename = $save_path . '/' . $file;
-        $result = move_uploaded_file($img_data, $filename );
-        if ( ! $result || ! is_file( $filename ) ) {
+        $save_filename = $save_path . '/' . $file;
+        $result = move_uploaded_file($img_data, $save_filename );
+        if ( ! $result || ! is_file( $save_filename ) ) {
             return array("state"=>0,"error"=>"upload error");
             die ();
         }
     }
-	return array("state"=>1,"files"=>$files,"f"=>$_FILES);
+    return array("state"=>1,"files"=>$files,"f"=>$_FILES,"path"=>$path,"filename"=>$filename);
 }

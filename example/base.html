@@ -17,7 +17,7 @@
 <script src="../index.js"></script>
 <script>
     var e = lyEditor.init("#editor");
-    e.upload("../php/upload.php","imgs[]","",function(){
+    e.upload("../php/upload.php","imgs","../images/uploads/", "/lyEditor/images/uploads/",function(){
         console.log("uploaded");
     });
     $(".gethtml").click(function(){

@@ -187,6 +187,7 @@ blockquote:before {
 
 .addtree_content {
     border: 1px solid #999;
+    overflow: hidden;
 }
 
 .addtree_content .addtree_content_ops {

@@ -405,6 +405,7 @@ var liyangEditor=function(){
     this.uploadUrl="";
     this.uploadName = "upfile";
     this.path ="../images/uploads/";
+    this.showpath=this.path;
     this.imgs=[];
     this.uploadCallback=function(){
 
@@ -487,12 +488,13 @@ liyangEditor.prototype={
                     console.log(that.uploadUrl);
                         if(that.uploadUrl){
                                 var formdata=new FormData();
-                                if(this.path){
+                                if(that.path){
                                     formdata.append("path",that.path);
                                 }
+                                formdata.append("filename",that.uploadName);
                                 var files=$(this)[0].files;
                                 for(var i=0,len=files.length;i<len;i++){
-                                    formdata.append(that.uploadName,files[i])
+                                    formdata.append(that.uploadName+"[]",files[i])
                                 }
                                 $.ajax({
                                     url: that.uploadUrl,
@@ -506,13 +508,13 @@ liyangEditor.prototype={
                                     if(data['state']=="1"){
                                         for(var i=0,len=data['files'].length;i<len;i++){
                                             var html1=$(that.eid +" .addtree_content_cont").html();
-                                            document.execCommand("InsertImage", false, that.path+data['files'][i]);
+                                            document.execCommand("InsertImage", false, that.showpath+data['files'][i]);
                                             if(html1==$(that.eid +" .addtree_content_cont").html()){
                                                 $(that.eid +" .addtree_content_cont").html($(that.eid +" .addtree_content_cont").html()+
-                                                '<div><img src="'+that.path+data['files'][i]+'"></div>'+
+                                                '<div><img src="'+that.showpath+data['files'][i]+'"></div>'+
                                                 '');
                                             }
-                                            that.imgs.push(that.path + data['files'][i]);
+                                            that.imgs.push(that.showpath + data['files'][i]);
                                             console.log(that.imgs);
                                         }
                                     }
@@ -591,13 +593,16 @@ liyangEditor.prototype={
         $(this.eid +" .addtree_content_cont").html(htmlstr);
         return this;
     },
-    upload:function(url,upname,path,callback){
+    upload:function(url,upname,path,showpath,callback){
         this.uploadUrl = url;
         if(upname){
             this.uploadName=upname;
         }
         if(path){
             this.path=path;
+        }
+        if(showpath){
+            this.showpath=showpath;
         }
         if(typeof callback === "function"){
             this.uploadCallback=callback;
