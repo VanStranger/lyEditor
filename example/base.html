@@ -13,17 +13,17 @@
     <a href="###" class="gettext">获取text</a>
 </body>
 </html>
-<script src="../jquery-3.2.1.min.js"></script>
+<!-- <script src="../jquery-3.2.1.min.js"></script> -->
 <script src="../index.js"></script>
 <script>
     var e = lyEditor.init("#editor");
     e.upload("../php/upload.php","imgs","../images/uploads/", "/lyEditor/images/uploads/",function(){
         console.log("uploaded");
     });
-    $(".gethtml").click(function(){
+   document.querySelector(".gethtml").onclick=function(){
         console.log(e.getHtml());
-    })
-    $(".gettext").click(function(){
+    }
+   document.querySelector(".gettext").onclick=function(){
         console.log(e.getText());
-    })
+    }
 </script>
