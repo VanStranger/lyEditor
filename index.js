@@ -18,6 +18,7 @@ var lyEditor =(function(){
             }else{
                 return true;
             }
+            var oldhtml= document.querySelector(this.eid).innerHTML;
            document.querySelector(this.eid).innerHTML=`
                     <div class="addtree_content">
                         <div class="addtree_content_ops">
@@ -77,6 +78,7 @@ var lyEditor =(function(){
                     </div>
                 `;
             this.addclickfns();
+            this.setHtml(oldhtml);
             return this;
         },
         addclickfns:function(){
@@ -120,11 +122,12 @@ var lyEditor =(function(){
                                                     }
                                                     that.imgs.push(that.showpath + data['files'][i]);
                                                     console.log(that.imgs);
+                                                    that.uploadCallback();
                                                 }
                                             }
                                         }
                                     };
-                                    that.uploadCallback();
+
                                     // $.ajax({
                                     //     url: that.uploadUrl,
                                     //     type: 'post',
