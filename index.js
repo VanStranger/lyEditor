@@ -22,11 +22,11 @@ var lyEditor =(function(){
            document.querySelector(this.eid).innerHTML=`
                     <div class="addtree_content">
                         <div class="addtree_content_ops">
-                            <ul class="clear">
+                            <ul class="l-clear">
                                 <li class="ops htmltext behtml"><a href="###" class="ops_a"><span class="iconfont "></span>Html</a></li>
                                 <li class="ops htmltext none"><a href="###" class="ops_a"><span class="iconfont "></span>DOM</a></li>
-                                <li class="ops"><a href="###" class="ops_a"  data-role='undo'><span class="icon-undo"></span></a></li>
-                                <li class="ops"><a href="###" class="ops_a" data-role='redo'><span class="icon-redo"></span></a></li>
+                                <li class="ops"><a href="###" class="ops_a"  data-role='undo'><span class="lyeditor-undo"></span></a></li>
+                                <li class="ops"><a href="###" class="ops_a" data-role='redo'><span class="lyeditor-redo"></span></a></li>
 
                                 <li class="ops">
                                     <a href="###" class="ops_a"><span class="iconfont "></span><b>H</b></a>
@@ -51,7 +51,7 @@ var lyEditor =(function(){
                                     </ul>
                                 </li>
                                 <li class="ops">
-                                    <a href="###" class="ops_a" data-role='formatBlock' data-cmd='BLOCKQUOTE'><span class="icon-quotes-left"></span></a>
+                                    <a href="###" class="ops_a" data-role='formatBlock' data-cmd='BLOCKQUOTE'><span class="lyeditor-quotes-left"></span></a>
                                 </li>
 
 
@@ -59,13 +59,13 @@ var lyEditor =(function(){
                                 <li class="ops"><a href="###" class="ops_a" data-role='italic'><span class="iconfont "></span><em>Italic</em></a></li>
                                 <li class="ops"><a href="###" class="ops_a" data-role='underline'><span class="iconfont "></span><u><b>U</b></u></a></li>
                                 <li class="ops"><a href="###" class="ops_a"  data-role='strikeThrough'><span class="iconfont "></span><strike>abc</strike></a></li>
-                                <li class="ops"><a href="###" class="ops_a"  data-role='JustifyLeft'><span class="icon-paragraph-left"></span></a></li>
-                                <li class="ops"><a href="###" class="ops_a"  data-role='JustifyCenter'><span class="icon-paragraph-center"></span></a></li>
-                                <li class="ops"><a href="###" class="ops_a"  data-role='JustifyRight'><span class="icon-paragraph-right"></span></a></li>
+                                <li class="ops"><a href="###" class="ops_a"  data-role='JustifyLeft'><span class="lyeditor-paragraph-left"></span></a></li>
+                                <li class="ops"><a href="###" class="ops_a"  data-role='JustifyCenter'><span class="lyeditor-paragraph-center"></span></a></li>
+                                <li class="ops"><a href="###" class="ops_a"  data-role='JustifyRight'><span class="lyeditor-paragraph-right"></span></a></li>
 
 
 
-                                <li class="ops"><a href="###" class="ops_a imgup"><span class="icon-image"></span></a></li>
+                                <li class="ops"><a href="###" class="ops_a imgup"><span class="lyeditor-image"></span></a></li>
                                 <li class="ops right"><a href="###" class="ops_a clearall"  data-role='removeFormat'>清除</a></li>
 
                                 <li class="none"><input type="file" class="upfile" name="upfile[]" multiple="multiple"></li>
@@ -86,8 +86,6 @@ var lyEditor =(function(){
             console.log(that.eid);
             (function upimg(){
                 document.querySelector(that.eid + " .upfile").addEventListener("change",function(){
-                        console.log("up");
-                        console.log(that.uploadUrl);
                             if(that.uploadUrl){
                                     var formdata=new FormData();
                                     if(that.path){
@@ -159,8 +157,8 @@ var lyEditor =(function(){
                                     //     that.uploadCallback();
                                     //     console.log("complete");
                                     // });
-                        }
-
+                            }
+                            this.value='';
                         return false;
                     });
                 })();

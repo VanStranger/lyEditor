@@ -10,6 +10,9 @@ $filename=input('filename',"upload_file");
 $path=input("path","../images/uploads/");
 echo json_encode(uploadImgs($filename,$path)) ;
 function uploadImgs($filename="upload_file",$path="../images/uploads"){
+    if(substr($path,0,1)==="/"){
+        $path=$_SERVER['DOCUMENT_ROOT'].$path;
+    }
     if (!isset($_FILES[$filename])) {
         return array("state"=>0,"error"=>'无图片上传信息，或文件key设置错误',"f"=>$_FILES);
         die ();
@@ -142,5 +145,5 @@ function uploadImgs($filename="upload_file",$path="../images/uploads"){
             die ();
         }
     }
-    return array("state"=>1,"files"=>$files,"f"=>$_FILES,"path"=>$path,"filename"=>$filename);
+    return array("state"=>1,"files"=>$files);
 }

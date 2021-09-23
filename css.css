@@ -6,8 +6,8 @@
     font-style: normal;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="lyeditor-"],
+[class*=" lyeditor-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'icomoon' !important;
     font-style: normal;
@@ -20,127 +20,127 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-close:before {
+.lyeditor-close:before {
     content: "\f00d";
 }
 
-.icon-remove:before {
+.lyeditor-remove:before {
     content: "\f00d";
 }
 
-.icon-times:before {
+.lyeditor-times:before {
     content: "\f00d";
 }
 
-.icon-trash-o:before {
+.lyeditor-trash-o:before {
     content: "\f014";
 }
 
-.icon-terminal:before {
+.lyeditor-terminal:before {
     content: "\f120";
 }
 
-.icon-header:before {
+.lyeditor-header:before {
     content: "\f1dc";
 }
 
-.icon-paint-brush:before {
+.lyeditor-paint-brush:before {
     content: "\f1fc";
 }
 
-.icon-pencil2:before {
+.lyeditor-pencil2:before {
     content: "\e906";
 }
 
-.icon-image:before {
+.lyeditor-image:before {
     content: "\e90d";
 }
 
-.icon-play:before {
+.lyeditor-play:before {
     content: "\e912";
 }
 
-.icon-location:before {
+.lyeditor-location:before {
     content: "\e947";
 }
 
-.icon-undo:before {
+.lyeditor-undo:before {
     content: "\e965";
 }
 
-.icon-redo:before {
+.lyeditor-redo:before {
     content: "\e966";
 }
 
-.icon-quotes-left:before {
+.lyeditor-quotes-left:before {
     content: "\e977";
 }
 
-.icon-list-numbered:before {
+.lyeditor-list-numbered:before {
     content: "\e9b9";
 }
 
-.icon-list2:before {
+.lyeditor-list2:before {
     content: "\e9bb";
 }
 
-.icon-upload2:before {
+.lyeditor-upload2:before {
     content: "\e9c6";
 }
 
-.icon-link:before {
+.lyeditor-link:before {
     content: "\e9cb";
 }
 
-.icon-happy:before {
+.lyeditor-happy:before {
     content: "\e9df";
 }
 
-.icon-cancel-circle:before {
+.lyeditor-cancel-circle:before {
     content: "\ea0d";
 }
 
-.icon-font:before {
+.lyeditor-font:before {
     content: "\ea5c";
 }
 
-.icon-text-height:before {
+.lyeditor-text-height:before {
     content: "\ea5f";
 }
 
-.icon-bold:before {
+.lyeditor-bold:before {
     content: "\ea62";
 }
 
-.icon-underline:before {
+.lyeditor-underline:before {
     content: "\ea63";
 }
 
-.icon-italic:before {
+.lyeditor-italic:before {
     content: "\ea64";
 }
 
-.icon-strikethrough:before {
+.lyeditor-strikethrough:before {
     content: "\ea65";
 }
 
-.icon-page-break:before {
+.lyeditor-page-break:before {
     content: "\ea68";
 }
 
-.icon-table2:before {
+.lyeditor-table2:before {
     content: "\ea71";
 }
 
-.icon-paragraph-left:before {
+.lyeditor-paragraph-left:before {
     content: "\ea77";
 }
 
-.icon-paragraph-center:before {
+.lyeditor-paragraph-center:before {
     content: "\ea78";
 }
 
-.icon-paragraph-right:before {
+.lyeditor-paragraph-right:before {
     content: "\ea79";
 }
 
@@ -188,8 +188,20 @@ blockquote:before {
 .addtree_content {
     border: 1px solid #999;
     overflow: hidden;
+    background-color: #fff;
 }
-
+.addtree_content .l-clear {
+    clear: both;
+    *zoom: 1;
+}
+  
+.addtree_content .l-clear:after {
+    content: '\20';
+    clear: both;
+    *zoom: 1;
+    display: block;
+    height: 0;
+}
 .addtree_content .addtree_content_ops {
     height: 40px;
     line-height: 40px;
@@ -201,6 +213,7 @@ blockquote:before {
     float: left;
     padding: 0 10px;
     position: relative;
+    font-size: 12px;
 }
 
 .addtree_content>.addtree_content_ops>ul>.ops.right {
@@ -245,12 +258,13 @@ blockquote:before {
 }
 
 .addtree_content .addtree_content_cont {
-    height: 666px;
+    height: 233px;
     padding: 20px;
     line-height: 1.8;
     font-size: 16px;
     color: #999;
     overflow-y: auto;
+    clear: both;
 }
 
 .addtree_content .addtree_content_cont img {
